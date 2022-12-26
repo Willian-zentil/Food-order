@@ -1,26 +1,30 @@
 import React, { Fragment } from 'react'
 import ReactDom from 'react-dom';
 
-import Cart from '../Cart/Cart'
 import styles from './Modal.module.css'
 
-export const ModalUl = () => {
+const Backdrop = props => {
+
     return (
-        <Fragment>
-            <div className={styles.backdrop}></div>
-            <div className={styles.modal}>
-                <Cart />
-            </div>
-        </Fragment>
+        <div className={styles.backdrop}></div>
     )
 }
 
-const Modal = () => {
+const ModalUl = props => {
+    return (
+        <div className={styles.modal}>
+            <div className={styles.content}>{props.children}</div>
+        </div>
+    )
+}
+
+const Modal = (props) => {
     return (
         <Fragment>
+            {ReactDom.createPortal(<Backdrop />, document.getElementById('overlays'))}
             {ReactDom.createPortal(
-                <ModalUl />,
-                document.getElementById('modal')
+                <ModalUl>{props.children}</ModalUl>,
+                document.getElementById('overlays')
             )}
         </Fragment>
     )

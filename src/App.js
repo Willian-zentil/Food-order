@@ -1,13 +1,17 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
+import Cart from './components/Cart/Cart'
+import CartContext from './Context/cart-context';
 
 function App() {
+
   return (
-    <Fragment>
-      <Header />
+    <CartContext.Provider>
+      <Cart />
+      {isCartOpen && <Header />}
       <Meals/>
-    </Fragment>
+    </CartContext.Provider>
   );
 }
 

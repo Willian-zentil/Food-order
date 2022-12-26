@@ -1,11 +1,12 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import ButtonHeader from './ButtonHeader'
 
 import styles from './Header.module.css'
 import mealsPic from '../../assets/meals.jpg'
 
 
-const Header = () => {
+const Header = (props) => {
+
   return (
     <Fragment>
       <header className={styles.header}>
