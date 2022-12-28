@@ -37,7 +37,7 @@ function AvailableMeals() {
         <section className={styles.meals}>
             <Card>
                 <ul>
-                    {DUMMY_MEALS.map(meal => <MealItem meal={meal}/>)}
+                    {DUMMY_MEALS.map(meal => <MealItem key={meal.id} meal={meal}/>)}
                 </ul>
             </Card>
         </section>
